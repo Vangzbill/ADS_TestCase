@@ -139,6 +139,75 @@ app.get('/karyawan/:nomor_induk', async (req, res) => {
   }
 });
 
+app.get('/cuti', async (req, res) => {
+  try {
+    const cutiList = await Cuti.findAll();
+    res.json(cutiList);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.post('/cuti', async (req, res) => {
+  try {
+    const cuti = await Cuti.create(req.body);
+    res.json(cuti);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.put('/cuti/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const [updatedRows] = await Cuti.update(req.body, {
+      where: { id },
+    });
+    if (updatedRows > 0) {
+      res.json({ message: 'Cuti updated successfully' });
+    } else {
+      res.status(404).json({ error: 'Cuti not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.delete('/cuti/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deletedRows = await Cuti.destroy({
+      where: { id },
+    });
+    if (deletedRows > 0) {
+      res.json({ message: 'Cuti deleted successfully' });
+    } else {
+      res.status(404).json({ error: 'Cuti not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get('/cuti', async (req, res) => {
+  try{
+    let cutiList;
+
+    const { sortBy } = req.query;
+
+    if (sortBy === 'tanggal_cuti') {
+      cutiList = await Cuti.findAll({
+        order: [['tanggal_cuti', 'ASC']],
+      });
+    } else {
+      cutiList = await Cuti.findAll();
+    }
+  }
+  catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
