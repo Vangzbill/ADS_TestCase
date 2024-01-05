@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "3e4afd2d-e2e8-40c8-8780-77578c8fb8a0",
+		"name": "Tes Case ADS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26099817"
+	},
+	"item": [
+		{
+			"name": "Get All Karyawan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/karyawan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"karyawan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Karyawan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomor_induk\": \"123\",\r\n    \"nama\": \"John Doe\",\r\n    \"alamat\": \"Jl. Contoh No. 123\",\r\n    \"tanggal_lahir\": \"2000-01-01\",\r\n    \"tanggal_bergabung\": \"2022-01-01\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/karyawan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"karyawan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Karyawan",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama\": \"Sabilla\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/karyawan/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"karyawan",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Karyawan",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/karyawan/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"karyawan",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Cuti",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/cuti",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"cuti"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Cuti",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"7\",\r\n    \"tanggal_cuti\": \"2023-01-01\",\r\n    \"lama_cuti\": \"3\",\r\n    \"keterangan\": \"Acara Keluarga\",\r\n    \"nomor_induk\": \"IP06010\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/cuti",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"cuti"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Cuti",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"7\",\r\n    \"tanggal_cuti\": \"2023-01-01\",\r\n    \"lama_cuti\": \"4\",\r\n    \"keterangan\": \"Menikah\",\r\n    \"nomor_induk\": \"IP06010\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/cuti/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"cuti",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cuti",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/cuti/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"cuti",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Karyawan Sort Tanggal Lahir",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/karyawan?sortBy=tanggal_lahir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"karyawan"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "tanggal_lahir"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Karyawan Sort Nama",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/karyawan?sortBy=nama",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"karyawan"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "nama"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cuti Sort Tanggal Cuti",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/cuti?sortBy=tanggal_cuti",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"cuti"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "tanggal_cuti"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
